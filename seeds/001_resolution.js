@@ -19,5 +19,7 @@ exports.seed = function(knex, Promise) {
           dueDate: '1997-09-01',
           resolution: 'Start knitting'
         }]);
+    }).then(() => {
+      return knex.raw("ALTER SEQUENCE resolution_id_seq RESTART WITH 4;");
     });
 };
